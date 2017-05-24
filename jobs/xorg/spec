@@ -1,0 +1,7 @@
+---
+name: xorg
+packages:
+  - xorg
+templates:
+  xorg_ctl.erb: bin/xorg_ctl
+  xorg.conf.erb: conf/xorg.conf

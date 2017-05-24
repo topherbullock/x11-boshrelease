@@ -1,0 +1,6 @@
+---
+name: xorg
+dependencies: []
+files:
+- apt/xorg/profile.sh
+- apt/xorg/*.deb

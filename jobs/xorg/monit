@@ -1,0 +1,5 @@
+check process xvfb
+  with pidfile /var/vcap/sys/run/xorg/xorg.pid
+  start program "/bin/sh -c '/var/vcap/jobs/xorg/bin/xorg_ctl start'"
+  stop program "/var/vcap/jobs/xorg/bin/xorg_ctl stop"
+  group vcap

@@ -33,9 +33,10 @@ case $1 in
     export TMPDIR=/var/vcap/data/tmp
     mkdir -p $TMPDIR
 
-    source /var/vcap/packages/xorg/profile.sh
-
-    Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile $LOG_DIR/xorg.log -config ../config/xorg.conf :10
+    source /var/vcap/packages/xorg/profile.sh    
+    cp ../config/xorg.conf /usr/lib/X11/xorg.conf.d/
+    
+    X -noreset +extension GLX +extension RANDR +extension RENDER -logfile $LOG_DIR/xorg.log -config  :10
 
   ;;
   stop)

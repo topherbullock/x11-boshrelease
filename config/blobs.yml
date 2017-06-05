@@ -98,6 +98,10 @@ apt/xorg/xserver-xorg-input-wacom_1%3a0.23.0-0ubuntu2_amd64.deb:
   size: 77744
   object_id: 42a2c2bd-88dd-4e86-4446-043479db7349
   sha: 36f35ebd6f5a0d30633a31c44e740f11a71d29e6
+apt/xorg/xserver-xorg-video-dummy_1%3a0.3.7-1build1_amd64.deb:
+  size: 8554
+  object_id: 7ada949c-f47f-45fd-7ee6-71daee9ff81f
+  sha: ee011eab1ea8c57a5ee9abbb1f06a26de38a8825
 apt/xorg/xserver-xorg_1%3a7.7+1ubuntu8.1_amd64.deb:
   size: 73152
   object_id: c24dd9ed-1948-49c5-5f7f-ab6a55fe91c5

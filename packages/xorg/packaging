@@ -6,10 +6,12 @@ set -u # report the usage of uninitialized variables
 # $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
 
 mkdir -p $BOSH_INSTALL_TARGET/apt
+mkdir -p $BOSH_INSTALL_TARGET/debs
 
 for DEB in $(ls -1 apt/xorg/*.deb); do
   echo "Installing $(basename $DEB)"
   dpkg -x $DEB $BOSH_INSTALL_TARGET/apt
+  cp $DEB $BOSH_INSTALL_TARGET/debs/
 done
 
 cp -a apt/xorg/profile.sh $BOSH_INSTALL_TARGET/

@@ -1,59 +1,24 @@
-# This xorg configuration file is meant to be used by xpra
-# to start a dummy X11 server.
-# For details, please see:
-# https://xpra.org/Xdummy.html
-
-Section "ServerFlags"
-  Option "DontVTSwitch" "true"
-  Option "AllowMouseOpenFail" "true"
-  Option "PciForceNone" "true"
-  Option "AutoEnableDevices" "false"
-  Option "AutoAddDevices" "false"
-EndSection
-
-Section "InputDevice"
-  Identifier "dummy_mouse"
-  Option "CorePointer" "true"
-  Driver "void"
-EndSection
-
-Section "InputDevice"
-  Identifier "dummy_keyboard"
-  Option "CoreKeyboard" "true"
-  Driver "void"
-EndSection
-
 Section "Device"
-  Identifier "dummy_videocard"
-  Driver "dummy"
-  Option "ConstantDPI" "true"
-  VideoRam 192000
+    Identifier  "Dummy"
+    Driver      "dummy"
+    VideoRam    256000
+    Option      "IgnoreEDID"    "true"
+    Option      "NoDDC" "true"
 EndSection
 
 Section "Monitor"
-  Identifier "dummy_monitor"
-  HorizSync   5.0 - 1000.0
-  VertRefresh 5.0 - 200.0
-  Modeline "1920x1080" 23.53 1920 1952 2040 2072 1080 1106 1108 1135
-  Modeline "1024x768" 18.71 1024 1056 1120 1152 768 786 789 807
+    Identifier  "Monitor"
+    HorizSync   15.0-100.0
+    VertRefresh 15.0-200.0
 EndSection
 
 Section "Screen"
-  Identifier "dummy_screen"
-  Device "dummy_videocard"
-  Monitor "dummy_monitor"
-  DefaultDepth 24
-  SubSection "Display"
-    Viewport 0 0
-    Depth 24
-    Modes "1920x1080" "1024x768"
-    Virtual 8192 4096
-  EndSubSection
-EndSection
-
-Section "ServerLayout"
-  Identifier   "dummy_layout"
-  Screen       "dummy_screen"
-  InputDevice  "dummy_mouse"
-  InputDevice  "dummy_keyboard"
+    Identifier  "Screen"
+    Monitor     "Monitor"
+    Device      "Dummy"
+    DefaultDepth    24
+    SubSection  "Display"
+        Depth   24
+        Modes   "1920x1080" "1280x1024"
+    EndSubSection
 EndSection

@@ -11,20 +11,12 @@ function setup() {
   mkdir -p /var/vcap/sys/log/monit
   exec 1>> /var/vcap/sys/log/monit/xorg.out.log
   exec 2>> /var/vcap/sys/log/monit/xorg.err.log
-  
+
   apt_install
 }
 
 function apt_install() {
-  source /var/vcap/packages/xorg/profile.sh
-  install_debs
-  apt-get -fy install
-}
-
-function install_debs(){
-  for DEB in $(ls -1 /var/vcap/packages/xorg/debs/*.deb); do
-    dpkg -i $DEB
-  done
+  cp /var/vcap/packages/cache/*.deb /
 }
 
 case $1 in

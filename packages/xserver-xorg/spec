@@ -1,0 +1,5 @@
+---
+name: xserver-xorg
+dependencies: []
+files:
+- xserver-xorg/xserver-xorg-1:7.7.tgz

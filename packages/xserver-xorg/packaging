@@ -1,0 +1,5 @@
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+mkdir -p $BOSH_INSTALL_TARGET/cache
+tar -C $BOSH_INSTALL_TARGET/cache/ -zxvf xserver-xorg/xserver-xorg-1:7.7.tgz

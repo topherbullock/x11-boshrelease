@@ -16,7 +16,13 @@ function setup() {
 }
 
 function apt_install() {
-  cp /var/vcap/packages/cache/*.deb /
+  export DEBIAN_FRONTEND=noninteractive
+
+  pushd /apt/cache/
+    cp /var/vcap/packages/xserver-xorg/cache/*.deb
+  popd
+
+  apt-get install -fy xserver-xorg xserver-xorg-video-dummy xserver-xorg-input-void
 }
 
 case $1 in
@@ -40,11 +46,18 @@ case $1 in
 
     export TMPDIR=/var/vcap/data/tmp
     mkdir -p $TMPDIR
-   
+
     mkdir -p $XORG_CONF_DIR
     cp $JOB_DIR/conf/xorg.conf $XORG_CONF_DIR
-        
-    X -noreset +extension GLX +extension RANDR +extension RENDER -logfile $LOG_DIR/xorg.log :10
+
+    echo $$ > $PIDFILE
+    Xorg -configure -noreset +extension GLX +extension RANDR \
+    +extension RENDER -logfile $LOG_DIR/xorg.config.log \
+    :<%= p("display") %> 2>&1>>$LOG_DIR/xorg.config.out.log
+
+    Xorg -noreset +extension GLX +extension RANDR \
+    +extension RENDER -logfile $LOG_DIR/xorg.log \
+    :<%= p("display") %> 2>&1>>$LOG_DIR/xorg.out.log
 
   ;;
   stop)

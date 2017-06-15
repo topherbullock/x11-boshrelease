@@ -1,0 +1,15 @@
+name: x11
+version: 0.0.1
+commit_hash: 5dac50e
+uncommitted_changes: false
+jobs:
+- name: xorg
+  version: 05794fdd338d7a721925e58cf0e596e9062a2089
+  fingerprint: 05794fdd338d7a721925e58cf0e596e9062a2089
+  sha1: 0e37cd0b57812c7e40a1c684f5556ef86d9a5b05
+packages:
+- name: xserver-xorg
+  version: 22f59d4749103161d2c151559ed63639a36480dd
+  fingerprint: 22f59d4749103161d2c151559ed63639a36480dd
+  sha1: 32ffff53f6be39df15e08c7b6746ce17773c39b0
+  dependencies: []

@@ -3,4 +3,5 @@ final_name: x11
 blobstore:
   provider: s3
   options:
+    region: ca-central-1
     bucket_name: x11-blobs
